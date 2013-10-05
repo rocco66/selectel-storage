@@ -16,7 +16,8 @@ library
     build-depends: base                 == 4.6.*
                  , bytestring           == 0.10.*
                  , hswift               == 0.0.*
-    exposed-modules: Example
+                 , transformers         == 0.3.*
+    exposed-modules: Selectel.Storage.Example
     default-extensions: LambdaCase
                         OverloadedStrings
                         RecordWildCards

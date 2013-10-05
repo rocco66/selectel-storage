@@ -1,7 +1,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-module Swift.Example (test) where
+module Selectel.Storage.Example (test) where
 
 import Control.Monad.IO.Class (liftIO)
 import Data.ByteString (ByteString)
@@ -32,8 +32,8 @@ instance SwiftAuthenticator SelcdnAuth SwiftConnectInfo where
 
 test :: IO ()
 test = let
-    authentificator = SelcdnAuth { selcdnAuthAccount = "7091_hswift"
-                                 , selcdnAuthKey     = "bh18Px6zxg" }
+    authentificator = SelcdnAuth { selcdnAuthAccount = ""
+                                 , selcdnAuthKey     = "" }
     -- authUrl = "https://auth.selcdn.ru" in
     authUrl = "https://auth.selcdn.ru" in
     runSwift authUrl authentificator $
