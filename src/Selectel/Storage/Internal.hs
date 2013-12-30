@@ -1,9 +1,8 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-module Selectel.Storage.Example (test) where
+module Selectel.Storage.Internal ( SelcdnAuth(..) ) where
 
-import Control.Monad.IO.Class (liftIO)
 import Data.ByteString (ByteString)
 
 import Swift
@@ -29,12 +28,3 @@ instance SwiftAuthenticator SelcdnAuth SwiftConnectInfo where
         swiftConnectInfoStorageUrl <- findHeaderInResponse resp "X-Storage-Url"
         swiftConnectToken <- findHeaderInResponse resp "X-Storage-Token"
         return SwiftConnectInfo { .. }
-
-test :: IO ()
-test = let
-    authentificator = SelcdnAuth { selcdnAuthAccount = ""
-                                 , selcdnAuthKey     = "" }
-    -- authUrl = "https://auth.selcdn.ru" in
-    authUrl = "https://auth.selcdn.ru" in
-    runSwift authUrl authentificator $
-        getContainer "hswift" >>= liftIO . putStrLn . show
